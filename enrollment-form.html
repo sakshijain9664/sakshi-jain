@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Enrollment Form</title>
+  <link rel="stylesheet" href="enrollment-form.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body onload="myFunction()">
+  <form onsubmit="emailsend(); reset(); return false; ">
+    <div class="form-section active" id="formSection">
+      <div id="formToPDF">
+      <div class="header">
+        <div class="header-left">
+          <h1>Basic Information</h1>
+        </div>
+        <div class="header-right">
+          <button onclick="resetForm()">Reset</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="basic-information">
+          <p>ENGINEERING COLLEGE AJMER<br></p>
+          <p> Contact: +911452971024</p>
+          <p>Address:Barliya Circle, Ajmer, Rajasthan 305025</p>
+          <p>Contact: +911452971023</p>
+          <p>Website:<a href="https://www.ecajmer.ac.in/contact">www.ecajmer.ac.in </a></p>
+          <p>Email: <a href="https://mail.google.com/mail/u/0/">principal.eca@rajasthan.gov.in</a></p>
+        </div>
+
+        <div class="image-right">
+          <img src="image 2.png" alt="student" />
+        </div>
+      </div>
+
+      <div class="start-page">
+        <h2>Student Registration Form</h2>
+      </div>
+
+      <div class="student-info">
+        <h2>Student Information</h2>
+      </div>
+
+
+      <div class="form-group">
+        <label>Student Name:</label>
+        <input type="text" id="firstName" placeholder="Enter your name"  />
+      </div>
+
+      <div class="form-group">
+        <label> Student Email:</label>
+        <input type="email" id="firstEmail" placeholder="demo@gmail.com"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Date Of Birth:</label>
+        <input type="date" id="DOB" required />
+      </div>
+      <!-- autocomplete="off" -->
+      <div class="form-group" id="gender">
+        <label>Gender:</label>
+        <div class="radio-group" id="radio">
+          <label><input type="radio" id="male" name="selectgender" value="Male" /> Male</label>
+          <label><input type="radio" id="female" name="selectgender" value="Female" /> Female</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nationality:</label>
+        <input type="text" id="national" placeholder="Enter your Nationality"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Address:</label>
+        <textarea id="add" placeholder="Enter your current address" rows="4" cols="70"  required></textarea>
+      </div>
+
+
+      <div class="form-group"> 
+        <label>Contact:</label>
+        <input type="number" id="phone" placeholder="Enter your contact number"  required />
+      </div>
+
+
+      <div class="parents-info">
+        <h2>Parent/Guardian Information</h2>
+      </div>
+
+      <div class="form-group">
+        <label>Parent Name:</label>
+        <input type="text" id="parentname" placeholder="Enter name"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Parent Contact:</label>
+        <input type="number" id="parentphone" placeholder="Enter contact info"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Relation to Student:</label>
+        <input type="text" id="relation" placeholder="Enter relationship"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Emergency Contact:</label>
+        <input type="number" id="emergencyphone" placeholder="Enter emergency contact"  required />
+      </div>
+      <!-- autocomplete="off" -->
+      <div class="education-info">
+        <h2>Education Information</h2>
+      </div>
+      <div class="form-group">
+        <label>School Name:</label>
+        <input type="text" id="SchoolName" placeholder="Enter name"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Graduation Date:</label>
+        <input type="date" id="graduationdate" placeholder="Enter graduation date"  required />
+      </div>
+
+      <div class="form-group">
+        <label>Student Course:</label>
+        <input type="text" id="course" placeholder="Enter your course"  required />
+      </div>
+
+      <div class="form-group">
+        <label>How did you hear about us</label>
+        <input type="text" id="hearaboutus" placeholder="Enter source" required />
+      </div>
+
+      <div class="form-group">
+        <label>Why are you interested in our program?</label>
+        <input type="text" id="interestedinprogram" placeholder="Your reason"  required />
+      </div>
+
+      <br>
+      <br>
+      <div class="form-group1">
+        <label class="terms-label">
+          Do you agree to the terms and conditions of <br>
+          <span class="highlight">Terms and Conditions</span>
+        </label>
+      </div>
+      <div class="thumb-icons">
+        <i class="fas fa-thumbs-up green-thumb"></i>
+        <i class="fas fa-thumbs-down blue-thumb"></i>
+      </div>
+
+      <div class="form-group">
+        <p>Signature of the student and, if a minor, a parent or guardian</p>
+      </div>
+
+      <div class="signature">
+
+      </div>
+
+      <div class="button-group">
+        <button type="button" onclick="showPreview()">Preview</button>
+      </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Preview Page -->
+  <div class="preview-section active" id="previewSection">
+    <div class="header">
+      <div class="header-left">
+        <h1>Preview Information</h1>
+      </div>
+    </div>
+
+    <div class="start-page">
+      <h2>Student Registration Form - Preview</h2>
+    </div>
+
+    <!-- Preview fields -->
+    <div class="form-group">
+      <label>Student Name:</label>
+      <div class="preview-box" id="pfirstName"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Student Email:</label>
+      <div class="preview-box" id="pfirstEmail"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Date Of Birth:</label>
+      <div class="preview-box" id="pDOB"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender:</label>
+      <div class="preview-box" id="pgender"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Nationality:</label>
+      <div class="preview-box" id="pnational"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Address:</label>
+      <div class="preview-box" id="padd"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Contact:</label>
+      <div class="preview-box" id="pphone"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Parent Name:</label>
+      <div class="preview-box" id="pparentname"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Parent Contact:</label>
+      <div class="preview-box" id="pparentphone"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Relation to Student:</label>
+      <div class="preview-box" id="prelation"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Emergency Contact:</label>
+      <div class="preview-box" id="pemergencyphone"></div>
+    </div>
+
+    <div class="form-group">
+      <label>School Name:</label>
+      <div class="preview-box" id="pSchoolName"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Graduation Date:</label>
+      <div class="preview-box" id="pgraduationdate"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Student Course:</label>
+      <div class="preview-box" id="pcourse"></div>
+    </div>
+
+    <div class="form-group">
+      <label>How did you hear about us:</label>
+      <div class="preview-box" id="phearaboutus"></div>
+    </div>
+
+    <div class="form-group">
+      <label>Why are you interested in our program?</label>
+      <div class="preview-box" id="pinterestedinprogram"></div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group1">
+      <button type="button" onclick="goBack()">Back</button>
+      <button type="button" onclick="showThankYouSection()">Submit</button>
+    </div>
+  </div>
+
+ 
+    <div class="container-thanku">
+  <div class="thankyou-section active" id="thankyouSection">
+    <div class="check-icon">&#10004;</div>
+    <h2>Form submission Successful!</h2>
+    <p>Thank you! The form has been submitted successfully.</p>
+    <p>We will reply to you soon!</p>
+    <p>
+      For any further inquiries,<br><br> please contact us at
+      please contact <a href="mailto:sakshijaineca99@gmail.com">sakshijaineca99@gmail.com</a>
+    </p>
+    <p>Student Reference ID is:</p>
+    <h2 id="referenceId"></h2>
+    <button onclick="goHome()">Back to Home</button>
+    <button type="button" onclick="downloadPDF()">Download PDF</button>
+
+  </div>
+</div>
+
+
+  <div id="pdfContent" style="display: none; padding: 20px;">
+  <h2>Student Registration Details</h2>
+  <p><strong>Name:</strong> <span id="pdfName"></span></p>
+  <p><strong>Email:</strong> <span id="pdfEmail"></span></p>
+  <p><strong>Date of Birth:</strong> <span id="pdfDOB"></span></p>
+  <p><strong>Gender:</strong> <span id="pdfGender"></span></p>
+  <p><strong>Nationality:</strong> <span id="pdfNationality"></span></p>
+  <p><strong>Address:</strong> <span id="pdfAddress"></span></p>
+  <p><strong>Phone:</strong> <span id="pdfPhone"></span></p>
+  <p><strong>Parent Name:</strong> <span id="pdfParentName"></span></p>
+  <p><strong>Parent Contact:</strong> <span id="pdfParentPhone"></span></p>
+  <p><strong>Relation:</strong> <span id="pdfRelation"></span></p>
+  <p><strong>Emergency Contact:</strong> <span id="pdfEmergency"></span></p>
+  <p><strong>School Name:</strong> <span id="pdfSchool"></span></p>
+  <p><strong>Graduation Date:</strong> <span id="pdfGraduation"></span></p>
+  <p><strong>Course:</strong> <span id="pdfCourse"></span></p>
+  <p><strong>Heard About Us:</strong> <span id="pdfHeard"></span></p>
+  <p><strong>Interest:</strong> <span id="pdfInterest"></span></p>
+</div>
+
+
+
+  <script src="enrollment-form.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "B6qZTDBKHu0JZZUHg",
+      });
+   })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+
+</body>
+</html>

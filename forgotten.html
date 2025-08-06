@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Find Your Account</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.otp-container {
+  background: antiquewhite;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 380px;
+  text-align: center;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background-color: darkorange;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:darkgoldenrod;
+}
+
+#otpMessage {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+</style>
+<body>
+  <div class="otp-container">
+    <h1>Find Your Account</h1>
+    <hr>
+    <p>Please enter your <strong>email address or mobile number</strong> to search for your account.</p>
+
+    <form id="otpForm">
+      <label for="contact">Email address or mobile number:</label><br>
+      <input type="text" id="contact" name="contact" placeholder="Enter mobile or email"><br><br>
+
+      <button type="button" onclick="sendOTP()">Send OTP</button>
+    </form>
+
+    <p id="otpMessage"></p>
+  </div>
+
+  <script>
+    function sendOTP() {
+      const contact = document.getElementById("contact").value.trim();
+      const message = document.getElementById("otpMessage");
+
+      if (!contact) {
+        message.textContent = "❌ Please enter mobile number or email.";
+        message.style.color = "red";
+        return;
+      }
+
+      // Regex to check if it's a mobile number or email
+      const isMobile = /^[6-9]\d{9}$/.test(contact);        // Simple Indian mobile validation
+      const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+
+      if (isMobile || isEmail) {
+        const otp = Math.floor(100000 + Math.random() * 900000); // Generate 6-digit OTP
+        console.log("OTP sent to:", contact, "| OTP:", otp); // Simulated sending
+        message.textContent = `✅ OTP sent to ${isMobile ? 'mobile number' : 'email'}: ${contact}`;
+        message.style.color = "green";
+      } else {
+        message.textContent = "❌ Invalid mobile number or email format.";
+        message.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>

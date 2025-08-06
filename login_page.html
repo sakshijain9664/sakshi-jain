@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="student_login.css">
+  <title>Student Login</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .main {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  .box-left {
+    width: 50%;
+    background-color: rgb(240, 148, 36);
+    color: white;
+    padding: 40px 30px;
+  }
+
+  .box-left h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  .box-left h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .box-left p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .std_login {
+    width: 50%;
+    padding: 40px 30px;
+    box-sizing: border-box;
+  }
+
+  .std_login h1 {
+    font-size: 30px;
+    color: #1e3a8a;
+  }
+
+  .std_login h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+  }
+
+  .std_login input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+
+  .button {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .button:hover {
+    background-color: #3653b1;
+  }
+
+  .std_login a {
+    color: #1e3a8a;
+    font-size: 20px;
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  .std_login p {
+    font-size: 20px;
+    margin-top: 20px;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .main {
+      flex-direction: column;
+    }
+
+    .box-left,
+    .std_login {
+      width: 100%;
+      padding: 30px 20px;
+    }
+  }
+</style>
+
+<body>
+
+
+  <div class="main">
+    <div class="box-left">
+      <h1>congratulation</h1>
+      <h2>welcome to Geca Ajmer</h2>
+      <p>To finish your enrolment,please complete<br> your registration with your personal, academic<br>details
+        and fee payment.<br>
+        this will help us to create your student profile,<br>please enter accurate and complete
+        <br>information,as this will be used for offical<br> purposes.<br>
+      </p>
+      <p>Thank you for choosing our university and see <br>you soon!</p>
+    </div>
+
+    <div class="std_login" id="login-1">
+      <h1> Student Login</h1>
+      <hr>
+      <h2>Welcome onboard with us!</h2>
+      <h2> Student Email ID</h2>
+      <input type="text" id="admin" name="admin" placeholder="Enter your name" required>
+      <h2>password</h2>
+      <input type="text" id="password" name="password" placeholder="password" required>
+      <br>
+      <a href="forgotten.html" style="text-decoration: none;" target="_blank">Forgotten Password?</a>
+      <br>
+      <button class="button" onclick="window.location.href='enrollment-form.html'">Login as Admin</button>
+      <br>
+      <a href="enrollment-form.html" class="" style="text-decoration: none ">
+        <p>Are you a student? <br><b>Enrollement your Self</b></p>
+      </a>
+    </div>
+</body>
+
+</html>
